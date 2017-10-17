@@ -55,4 +55,4 @@ def hessian(x):
         arr[i][:] = np.array(((gradient(x + h * e[:][i]) - gradient(x - h * e[:][i])) / (2 * h)))
     return arr
 
-invh = lambda x: np.linalg.inv(hessian(x))
+invh = lambda x: inv(hessian(x))
