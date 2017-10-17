@@ -1,4 +1,6 @@
 from numpy import *
+from numpy.linalg import inv
+
 h_glob = 10**(-4) # set global accuracy
 
 
@@ -51,4 +53,6 @@ def hessian(x):
     
     for i in range(dim):
         arr[i][:] = np.array(((gradient(x + h * e[:][i]) - gradient(x - h * e[:][i])) / (2 * h)))
-    return arr                
+    return arr
+
+invh = lambda x: np.linalg.inv(hessian(x))
